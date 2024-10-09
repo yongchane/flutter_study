@@ -164,26 +164,18 @@ packages:
     dependency: "direct main"
     description:
       name: sensors_plus
-      sha256: "362c8f4f001838b90dd5206b898bbad941bc0142479eab9a3415f0f79e622908"
+      sha256: "90f2d38471ca75625f6569d1044d783e0add43548692fbe6e53b008a38a8313a"
       url: "https://pub.dev"
     source: hosted
-    version: "1.4.1"
+    version: "6.0.1"
   sensors_plus_platform_interface:
     dependency: transitive
     description:
       name: sensors_plus_platform_interface
-      sha256: bc472d6cfd622acb4f020e726433ee31788b038056691ba433fec80e448a094f
+      sha256: b6cacfe243cbeb16403ba688cb0d7054ad4dccb946dcd1254bebdf345fe4b187
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.0"
-  sensors_plus_web:
-    dependency: transitive
-    description:
-      name: sensors_plus_web
-      sha256: fca8d7d9ab6233b2a059952666415508e252420be1ef54f092d07884da53ec5e
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.1.2"
+    version: "2.0.0"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -255,4 +247,4 @@ packages:
     version: "14.2.5"
 sdks:
   dart: ">=3.5.2 <4.0.0"
-  flutter: ">=3.18.0-18.0.pre.54"
+  flutter: ">=3.19.0"

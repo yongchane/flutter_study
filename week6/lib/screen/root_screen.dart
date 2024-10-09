@@ -1,9 +1,9 @@
-import 'package:week6/const/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:week6/screen/home_screen.dart';
 import 'package:week6/screen/setting_screen.dart';
+import 'dart:async'; // 추가
 import 'dart:math'; // Random() 객체를 사용하기 위해 추가
-import 'package:shake/shake.dart';
+import 'package:sensors_plus/sensors_plus.dart';
 
 class RootScreen extends StatefulWidget {
   const RootScreen({Key? key}) : super(key: key);
@@ -16,22 +16,25 @@ class _RootScreenState extends State<RootScreen> with TickerProviderStateMixin {
   TabController? controller;
   double threshold = 2.7;
   int number = 1;
-  ShakeDetector? shakeDetector;
+  late StreamSubscription<AccelerometerEvent> accelerometerSubscription;
 
   @override
   void initState() {
     super.initState();
     controller = TabController(length: 3, vsync: this);
     controller!.addListener(tabListener);
-    shakeDetector = ShakeDetector.autoStart(
-      shakeSlopTimeMS: 100,
-      shakeThresholdGravity: threshold,
-      onPhoneShake: onPhoneShake,
-    );
+
+    // 가속도계 스트림 구독
+    accelerometerSubscription = SensorsPlatform.instance.accelerometerEvents.listen((AccelerometerEvent event) {
+      // 가속도값이 threshold를 초과하는 경우 흔들림으로 간주
+      if (event.x.abs() > threshold || event.y.abs() > threshold || event.z.abs() > threshold) {
+        onPhoneShake();
+      }
+    });
   }
 
   void onPhoneShake() {
-    final rand = Random(); // new 키워드 제거
+    final rand = Random();
     setState(() {
       number = rand.nextInt(5) + 1;
     });
@@ -44,7 +47,7 @@ class _RootScreenState extends State<RootScreen> with TickerProviderStateMixin {
   @override
   void dispose() {
     controller!.removeListener(tabListener);
-    shakeDetector?.stopListening(); // shakeDetector! 대신 널 체크 추가
+    accelerometerSubscription.cancel(); // 스트림 구독 해제
     super.dispose();
   }
 
@@ -70,7 +73,7 @@ class _RootScreenState extends State<RootScreen> with TickerProviderStateMixin {
       Center(
         child: ElevatedButton(
           onPressed: generateRandomNumber,
-          child: Text('랜덤 주사위 번호 생성'),
+          child: const Text('랜덤 주사위 번호 생성'),
         ),
       ),
     ];
@@ -92,15 +95,15 @@ class _RootScreenState extends State<RootScreen> with TickerProviderStateMixin {
       },
       items: [
         BottomNavigationBarItem(
-          icon: Icon(Icons.edgesensor_high_outlined),
+          icon: const Icon(Icons.edgesensor_high_outlined),
           label: '주사위',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.settings),
+          icon: const Icon(Icons.settings),
           label: '설정',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.settings),
+          icon: const Icon(Icons.settings),
           label: '버튼',
         ),
       ],
