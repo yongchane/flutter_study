@@ -59,28 +59,104 @@ void main() {
 //     );
 //   }
 // }
-class MyApp extends StatelessWidget{
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: Scaffold(
+//         body: SizedBox(
+//            // 높이 무한대
+//           height: double.infinity,
+//           child: Row(
+//             // 가로  정렬
+//             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//             //세로 정렬
+//             crossAxisAlignment: CrossAxisAlignment.center,
+//             children: [
+//               Container(
+//                 height: 50,
+//                 width: 50,
+//                 color: Colors.red,
+//               ),
+//               const SizedBox(width: 12.0),
+//               Container(height: 50.0, width: 50.0, color: Colors.amberAccent),
+//               const SizedBox(width: 12.0),
+//               Container(height: 50.0, width: 50.0, color: Colors.blue)
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// // }
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: Scaffold(
+//         body: SizedBox(
+//           width: double.infinity,
+//           child: Column(
+//             // mainAxisAlignment: MainAxisAlignment.start,
+//             //
+//             // crossAxisAlignment: CrossAxisAlignment.center,
+//             children: [
+//               // Container(
+//               //   height: 50,
+//               //   width: 50,
+//               //   color: Colors.blue,
+//               // ),
+//               // const SizedBox(width: 12.0),
+//               // Container(
+//               //   height: 50,
+//               //   width: 50,
+//               //   color: Colors.red,
+//               // ),
+//               // const SizedBox(width: 12.0),
+//               // Container(
+//               //   height: 50,
+//               //   width: 50,
+//               //   color: Colors.black,
+//               // )
+//               Expanded(
+//                 flex: 1,
+//                 child: Container(
+//                   color: Colors.red,
+//                 ),
+//               ),
+//               Expanded(
+//                 // flex는 남은 공간의 비율 즉 공간의 비율 같은 느낌이다
+//                 flex: 1,
+//                 child: Container(
+//                   color: Colors.black
+//                 ),
+//               )
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+class MyApp extends StatelessWidget {
   @override
-  Widget build (BuildContext context){
+  Widget build(BuildContext context) {
     return MaterialApp(
+
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: SizedBox(
-          height: double.infinity,
-          child: Row(
+        body: Container(
 
-            mainAxisAlignment: MainAxisAlignment.start,
-
-            crossAxisAlignment: CrossAxisAlignment.center,
-
-            children: [
-              Container(
-                height: 50,
-                width: 50,
-                color: Colors.red,
-              )
-            ],
-          ),
-        ),
+            decoration: BoxDecoration(color: Color(0xFFF99231)),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset("assets/pngwing.com.png",width: 100,),
+                CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation(Colors.white),
+                )
+              ],
+            )),
       ),
     );
   }
