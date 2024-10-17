@@ -38,6 +38,8 @@ class SettingsScreen extends StatelessWidget {
           value: threshold, // ➍ 슬라이더 선택값
           onChanged: onThresholdChange, // ➎ 값 변경 시 실행되는 함수
           label: threshold.toStringAsFixed(1), // ➏ 표싯값
+          // toStringAsFixed : 소수점 이하 자리수를 고정
+          //toStringAsFixed(1)은 소수점 첫째 자리까지 반올림한 후 문자열로 변환
         ),
       ],
     );
