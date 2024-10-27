@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="09f391c6-25db-4f10-b065-e9c1b37aa215" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../mid_term/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/.metadata" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/analysis_options.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/android/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/android/app/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/android/app/src/debug/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/android/app/src/main/kotlin/com/example/mid_term/MainActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/android/app/src/main/res/drawable-v21/launch_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/android/app/src/main/res/drawable/launch_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/android/app/src/main/res/values-night/styles.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/android/app/src/main/res/values/styles.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/android/app/src/profile/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/android/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/android/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/android/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/asset/img/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/asset/img/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/asset/img/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/asset/img/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/asset/img/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/asset/img/6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/asset/img/poke1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/asset/img/poke2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/lib/const/colors.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/lib/main.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/lib/screen/home_screen.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/lib/screen/root_screen.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/lib/screen/settings_screen.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/pubspec.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/pubspec.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mid_term/test/widget_test.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week6/lib/screen/root_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../week6/lib/screen/root_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week6/lib/screen/setting_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../week6/lib/screen/setting_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week7/lib/component/custom_video_player.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../week7/lib/component/custom_video_player.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week7/lib/screen/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../week7/lib/screen/home_screen.dart" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2nrvS5YeCaXSwglskIEPRldVjeJ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;AndroidSdkUpdater&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
+      <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="09f391c6-25db-4f10-b065-e9c1b37aa215" name="Changes" comment="" />
+      <created>1729744008117</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1729744008117</updated>
+    </task>
+    <servers />
+  </component>
+</project>

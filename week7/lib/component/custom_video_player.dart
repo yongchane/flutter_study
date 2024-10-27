@@ -4,11 +4,11 @@ import 'package:video_player/video_player.dart'; // VideoPlayerController를 사
 import 'package:image_picker/image_picker.dart';
 
 class CustomVideoPlayer extends StatefulWidget {
-  // 선택한 동영상을 저장할 변수
   final XFile video;
   final GestureTapCallback onNewVideoPressed;
 
   const CustomVideoPlayer({
+
     required this.video, // 상위에서 선택한 동영상 주입해주기
     required this.onNewVideoPressed,
     Key? key,
@@ -20,7 +20,6 @@ class CustomVideoPlayer extends StatefulWidget {
 
 class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
   VideoPlayerController? videoController;
-  bool showControls = false;
 
   @override
   void initState() {
@@ -31,61 +30,58 @@ class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
   Future<void> initializeController() async {
     // 선택한 동영상으로 컨트롤러 초기화
     final controller = VideoPlayerController.file(
-      File(widget.video.path),
+      File(widget.video.path), //videoplaterconteoller를 이용해서 videoplater 제어
     );
     await controller.initialize();
-    controller.addListener(videoControllerListener);
+    // videoController 생성 후 initialize 함수 실행-> 동영상 재생 준비 상태
+    controller.addListener(videoControllerListener); // videoController 변화 감지 -> callback 함수
     setState(() {
       videoController = controller;
     });
   }
 
-  void videoControllerListener() {
+  void videoControllerListener() { // videoController 변화 감지 시 동작하는 callback -> setState로 상태 갱신-> build()함수 자동 재실행 됨->slider변화 반영
     setState(() {});
   }
 
   @override
+  // 앱 종료시 Listener 해제
   void dispose() {
     videoController?.removeListener(videoControllerListener);
     videoController?.dispose();
     super.dispose();
   }
 
-  @override
+  @override // convariant:기존 위젯의 변수를 모두 가져오기 위해서 사용
+  //State가 Update 될때 (새로운 동영상 선택)
   void didUpdateWidget(covariant CustomVideoPlayer oldWidget) {
     super.didUpdateWidget(oldWidget);
-    // 새로 선택한 동영상이 같은 동영상인지 확인
     if (oldWidget.video.path != widget.video.path) {
       initializeController();
     }
   }
 
   void onReversePressed() {
-    // 되감기 버튼 눌렀을 때 실행할 함수
     final currentPosition = videoController!.value.position;
     Duration position = Duration();
-    // 0초로 실행 위치 초기화
     if (currentPosition.inSeconds > 3) {
-      // 현재 실행위치가 3초보다 길때만 3초 빼기
       position = currentPosition - Duration(seconds: 3);
     }
     videoController!.seekTo(position);
   }
 
   void onForwardPressed() {
-    // 앞으로 감기 버튼 눌렀을 때 실행할 함수
     final maxPosition = videoController!.value.duration;
     final currentPosition = videoController!.value.position;
     Duration position = maxPosition;
-    // 동영상 길이에서 3초를 뺀 값보다 현재 위치가 짧을 때만 3초 더하기
-    if ((maxPosition - Duration(seconds: 3)).inSeconds > currentPosition.inSeconds) {
+    if ((maxPosition - Duration(seconds: 3)).inSeconds >
+        currentPosition.inSeconds) {
       position = currentPosition + Duration(seconds: 3);
     }
     videoController!.seekTo(position);
   }
 
   void onPlayPressed() {
-    // 재생 버튼을 눌렀을 때 실행할 함수
     if (videoController!.value.isPlaying) {
       videoController!.pause();
     } else {
@@ -103,63 +99,58 @@ class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
     return GestureDetector(
       onTap: () {
         setState(() {
-          showControls = !showControls;
+          // Tap action 처리
         });
       },
-      child: AspectRatio(
+      child: AspectRatio(// 위젯 내부에 영상의 비율을 조정해 주기 위함
         aspectRatio: videoController!.value.aspectRatio,
-        child: Stack(
+        child: Stack( //children 위젯을 위로 쌓을 수 있는 위젯
           children: [
-            VideoPlayer(videoController!), // 동영상 플레이어
-            if (showControls) ...[
-              Align(
-                alignment: Alignment.topRight,
-                child: CustomIconButton(
-                  onPressed: widget.onNewVideoPressed,
-                  iconData: Icons.photo_camera_back,
-                ),
+            VideoPlayer(videoController!), // 동영상 플레이어, videoplater 위젯을 stack으로 이동
+            Align(
+              alignment: Alignment.topRight,
+              child: CustomIconButton(
+                onPressed: widget.onNewVideoPressed, // 플레이어 화면 구현(동영상 최초 선택시)
+                iconData: Icons.photo_camera_back,
               ),
-              Align(
-                alignment: Alignment.center,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    CustomIconButton(
-                      onPressed: onReversePressed,
-                      iconData: Icons.rotate_left,
-                    ),
-                    CustomIconButton(
-                      onPressed: onPlayPressed,
-                      iconData: videoController!.value.isPlaying
-                          ? Icons.pause
-                          : Icons.play_arrow,
-                    ),
-                    CustomIconButton(
-                      onPressed: onForwardPressed,
-                      iconData: Icons.rotate_right,
-                    ),
-                  ],
-                ),
+            ),
+            Align(
+              alignment: Alignment.center,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  CustomIconButton(
+                    onPressed: onReversePressed,
+                    iconData: Icons.rotate_left,
+                  ),
+                  CustomIconButton(
+                    onPressed: onPlayPressed,
+                    iconData: videoController!.value.isPlaying
+                        ? Icons.pause
+                        : Icons.play_arrow,
+                  ),
+                  CustomIconButton(
+                    onPressed: onForwardPressed,
+                    iconData: Icons.rotate_right,
+                  ),
+                ],
               ),
-              Container(
-                color: Colors.black.withOpacity(0.5),
+            ),
+            Positioned( // 영상을 초단위로 제어하므로 0초에서 시작 최대 값은 videoConteoller에 로딩된 영상 값 참조
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: Slider(
+                onChanged: (double val) { // 슬라이더가 변화하면 val 값이 전달됨, videoController에서 val 부분을 찾아서 이동
+                  videoController!.seekTo(
+                    Duration(seconds: val.toInt()),
+                  );
+                },
+                value: videoController!.value.position.inSeconds.toDouble(), //현재 동영상이 실행되고 있는 위치
+                min: 0,
+                max: videoController!.value.duration.inSeconds.toDouble(),// 동영상 전체 길이 값
               ),
-              Positioned(
-                bottom: 0,
-                left: 0,
-                right: 0,
-                child: Slider(
-                  onChanged: (double val) {
-                    videoController!.seekTo(
-                      Duration(seconds: val.toInt()),
-                    );
-                  },
-                  value: videoController!.value.position.inSeconds.toDouble(),
-                  min: 0,
-                  max: videoController!.value.duration.inSeconds.toDouble(),
-                ),
-              ),
-            ]
+            ),
           ],
         ),
       ),
@@ -171,7 +162,12 @@ class CustomIconButton extends StatelessWidget {
   final VoidCallback onPressed;
   final IconData iconData;
 
-  const CustomIconButton({required this.onPressed, required this.iconData, Key? key}) : super(key: key);
+  const CustomIconButton({
+    // 일반적인 버튼이 눌리면 onPressed()가 실행되도록 일반적으로 정의함
+    required this.onPressed,
+    required this.iconData,
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

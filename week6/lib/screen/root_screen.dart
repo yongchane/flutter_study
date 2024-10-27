@@ -5,6 +5,7 @@ import 'dart:async'; // 추가
 import 'dart:math'; // Random() 객체를 사용하기 위해 추가
 import 'package:sensors_plus/sensors_plus.dart';
 
+// root screen은 총 뷰를 관리하는 최상위 컴포넌트 느낌으로 하단 메뉴 버튼과 각 메뉴에 대한 컴포넌트를 호출하고 state 값을 관리하고 있다 또한 넘기는 모션도 관리
 class RootScreen extends StatefulWidget {
   const RootScreen({Key? key}) : super(key: key);
 
@@ -23,7 +24,7 @@ class _RootScreenState extends State<RootScreen> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    super.initState();
+    super.initState(); // 부모 클래스(state)의 초기화 코드를 호출
     //tap 명령을 처리해 줄 controller 등록
     controller = TabController(length: 3, vsync: this);
     //	vsync: this: TickerProviderStateMixin을 사용해 현재 클래스가 vsync를 제공

@@ -4,6 +4,7 @@ class SettingsScreen extends StatelessWidget {
   final double threshold; // Slider의 현잿값
 // Slider가 변경될 때마다 실행되는 함수
   final ValueChanged<double> onThresholdChange;
+
   const SettingsScreen({
     Key? key,
 // threshold와 onThresholdChange는
@@ -11,6 +12,7 @@ class SettingsScreen extends StatelessWidget {
     required this.threshold,
     required this.onThresholdChange,
   }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Column(

@@ -6,10 +6,11 @@ class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
   @override
   State<HomeScreen> createState() => _HomeScreenState();
+  // 실제 App의 LayOut을 정의해줄 class 지정
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  XFile? video;
+  XFile? video; // image_picker는 xfile 자료형으로 동영상 경로를 저장함
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,6 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: video == null ? renderEmpty() : renderVideo(),
     );
   }
+  // 위젯을 renderEmpty,renderVideo를 선언해 컨테이너에 내용을 배치하는 걸로 다력적으로 만들어 줌
   Widget renderEmpty(){ // ➌ 동영상 선택 전 보여줄 위젯
     return Container(
       width: MediaQuery.of(context).size.width, // 넓이 최대로 늘려주기
@@ -26,8 +28,8 @@ class _HomeScreenState extends State<HomeScreen> {
 // 위젯들 가운데 정렬
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          _Logo(
-            onTap: onNewVideoPressed,
+          _Logo( // 해당 class는 버튼이 터치될 때 처리를 할 것임
+            onTap: onNewVideoPressed, // ontap을 통해 해당 함수로 가면 파일 선택 기능 구현함
           ), // 로고 이미지
           SizedBox(height: 30.0),
           _AppName(), // 앱 이름
@@ -56,17 +58,20 @@ class _HomeScreenState extends State<HomeScreen> {
   BoxDecoration getBoxDecoration() {
     return BoxDecoration(
       gradient: LinearGradient( // ➋ 그라데이션으로 색상 적용하기
-        begin: Alignment.topCenter,
+        // 그라데이션 시작점: 상단 중앙
+        begin: Alignment.topCenter, //Alignment는 위젯이나 레이아웃의 위치를 정의하는 클래스
+        // 그라데이션 끝점: 하단 중앙
         end: Alignment.bottomCenter,
         colors: [
-          Color(0xFF2A3A7C),
-          Color(0xFF000118),
+          Color(0xFF2A3A7C), // 상단의 색상: 파란색 계열
+          Color(0xFF000118), // 하단의 색상: 거의 검정색
         ],
       ),
     );
   }
 }class _Logo extends StatelessWidget { // 로고를 보여줄 위젯
-  final GestureTapCallback onTap;
+  final GestureTapCallback onTap; // 위젯에 터치가 들어가야하니 onTap사용
+  //ontap:onNewVideoPresse을 통해 해당 함수랑 연결됨
   const _Logo({
     required this.onTap,
     Key? key,
@@ -89,7 +94,7 @@ class _AppName extends StatelessWidget { // 앱 제목을 보여줄 위젯
       color: Colors.white,
       fontSize: 30.0,
       fontWeight: FontWeight.w300,
-    );
+    ); // mixin 처럼 미리 선언해서 함수처럼 쓰임
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
